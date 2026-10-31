@@ -41,20 +41,9 @@ import React from 'react';
 import Image from 'next/image';
 import { Star, BookOpen, Calendar, Tag } from 'lucide-react'; // optional icon framework or custom HTML SVG
 import BookCard from '../shared/BookCard';
+import { IBook } from '@/types/bookType';
 
-export interface IBook {
-  bookId: number;
-  bookName: string;
-  author: string;
-  image: string;
-  review: string;
-  totalPages: number;
-  rating: number;
-  category: string;
-  tags: string[];
-  publisher: string;
-  yearOfPublishing: number;
-}
+
 
 const getBooks = async (): Promise<IBook[]> => {
   const response = await fetch('http://localhost:3000/booksData.json', {

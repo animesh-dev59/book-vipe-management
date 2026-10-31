@@ -1,6 +1,6 @@
 import React from 'react';
-import { IBook } from '../homepage/Books';
 import Image from 'next/image';
+import { IBook } from '@/types/bookType';
 
 const BookCard = ({book}:{book:IBook}) => {
   return (
