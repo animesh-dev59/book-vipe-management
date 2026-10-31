@@ -38,8 +38,8 @@
 // export default Books; 
 
 import React from 'react';
-import Image from 'next/image';
-import { Star, BookOpen, Calendar, Tag } from 'lucide-react'; // optional icon framework or custom HTML SVG
+// import Image from 'next/image';
+// import { Star, BookOpen, Calendar, Tag } from 'lucide-react'; // optional icon framework or custom HTML SVG
 import BookCard from '../shared/BookCard';
 import { IBook } from '@/types/bookType';
 
@@ -72,8 +72,8 @@ const Books = async () => {
 
       {/* Grid Layout */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {booksData.map((book:IBook , ind:number) => (
-         <BookCard book={book} key={ind}/>
+        {booksData.slice(0,7).map((book:IBook) => (
+         <BookCard book={book} key={book.bookId}/>
         ))}
       </div>
     </section>
