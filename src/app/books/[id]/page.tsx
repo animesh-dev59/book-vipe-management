@@ -1,3 +1,5 @@
+import ReadButton from '@/components/bookDetails/ReadButton';
+import WishListButton from '@/components/bookDetails/WishListButton';
 import { IBook } from '@/types/bookType';
 import Image from 'next/image';
 import React from 'react';
@@ -32,7 +34,7 @@ const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
    const book = booksData.find((book:IBook)=>string( Number(book.bookId) === Number(id)))
    const book = booksData.find((book:IBook)=>string( String(book.bookId) === string(id)))
 
-  */}
+  */}   
    console.log(book,'book is a best time of a  father of your name schools');
   return(
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#F3F3F3] p-8 sm:p-12 rounded-2xl border border-slate-200">
@@ -99,12 +101,11 @@ const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
 
     {/* Action Buttons (Read & Wishlist) */}
     <div className="flex items-center gap-4 pt-6">
-      <button className="rounded-lg border border-slate-400 px-8 py-2.5 text-xs font-semibold text-slate-800 hover:bg-slate-100 transition-all">
-        Read
-      </button>
-      <button className="rounded-lg bg-[#59C6D2] hover:bg-[#4ab5c1] px-6 py-2.5 text-xs font-semibold text-white shadow-sm transition-all">
-        Wishlist
-      </button>
+       <ReadButton book={book}/> 
+         
+      <WishListButton book={book}/>
+      
+      
     </div>
 
   </div>
