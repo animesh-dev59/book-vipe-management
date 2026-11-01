@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import BooksProvider from "@/context/BooksContext";
+import { ToastContainer } from "react-toastify";
 // import { ToastContainer } from "react-toastify/unstyled";
 
 const geistSans = Geist({
@@ -32,7 +33,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar/>
         {children}
         <h3 className="text-red-500 font-bold text-4xl text-center">Footer is best</h3>
-        
+
+
+        <ToastContainer/>
        </BooksProvider>
         </body>
     </html>

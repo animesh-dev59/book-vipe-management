@@ -1,7 +1,8 @@
 'use client'
 import { BooksContext } from '@/context/BooksContext';
 import { IBook } from '@/types/bookType';
-import React, { useContext } from 'react';
+import  { useContext } from 'react';
+import { toast } from 'react-toastify';
 // import { toast } from 'react-toastify';
 
 const ReadButton = ({book}:{book:IBook}) => { 
@@ -10,9 +11,9 @@ const ReadButton = ({book}:{book:IBook}) => {
 
   // console.log(Books,'BooksProvider is a not best to my help you');
   const handleReadBook = ()=>{ 
-    // console.log('Loading ... ');
+    console.log('Loading ... ');
     setReadBooks([...readBooks,book]);
-    alert(`book Is "${book.bookName}"`);
+    toast.success(`book Is "${book.bookName}"`);
 
   }
   return (<button   
