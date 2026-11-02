@@ -27,7 +27,7 @@ const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
   // console.log(booksData,'booksData');
   // console.log(id,'id is a not best.');
   // const post = await (id) 
-  const book = booksData.find((book:IBook) => book.bookId == id) as IBook;
+  const book = booksData.find((book:IBook) => (book.bookId)  == (id)) as IBook;
 {/** 
    const book = booksData.find((book:IBook)=>string(book.bookId === string(id)))
    const book = booksData.find((book:IBook)=>string( book.bookId === Number(id)))
