@@ -17,6 +17,8 @@ const Navbar = () => {
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li><Link href='/books'>Books</Link></li>
         <li><Link href='/listed-books'>Listed Books</Link></li>
+        <li><Link href='/sort-data'>sort data</Link></li>
+        <li><Link href='/pages-read'>Pages Read</Link></li>
         
       </ul>
     </div>
@@ -31,6 +33,8 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
       <li><Link href='/books'>Books</Link></li>
       <li><Link href='/listed-books'>Listed Books</Link></li>
+      <li><Link href='/sort-data'>sort data</Link></li>
+      <li><Link href='/pages-read'>Pages Read</Link></li>
       {/* <li><Link>Item 2</Link></li>
       <li><Link>Item 3</Link></li> */}
     </ul>
