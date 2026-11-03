@@ -41,7 +41,7 @@ const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#F3F3F3] p-8 sm:p-12 rounded-2xl border border-slate-200">
 
   {/* Left Side: Image Container */}
-  <div className="relative h-[650px/] w-full max-w-[550px/] mx-auto flex items-center justify-center bg-white rounded-xl shadow-md p-6">
+  <div className="relative h-[650px] w-full max-w-[550px] mx-auto flex items-center justify-center bg-white rounded-xl shadow-md p-6">
     <Image
       src={book.image}
       alt={book.bookName}
