@@ -47,7 +47,8 @@ import BookCard from '@/components/shared/BookCard';
 
  const getBooks = async (): Promise<IBook[]> => {
  try{ 
-   const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booksData.json`);
+  const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000';
+   const response = await fetch(`${baseUrl}/booksData.json`);
   const data = await response.json(); 
   return data;
  }catch(error){ 

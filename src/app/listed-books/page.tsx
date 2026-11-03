@@ -144,8 +144,8 @@ const ListedPage = () => {
         <div className="tab-content bg-base-100 border-base-300 p-6"> 
           {
             sortedWishListBooks.length > 0 ? (
-              sortedWishListBooks.map((book: IBook) => { 
-                return (<ListedBooks key={book.bookId} book={book} />);
+              sortedWishListBooks.map((book: IBook , ind:number) => { 
+                return (<ListedBooks key={ind} book={book} />);
               })
             ) : <p className='text-center text-lg font-semibold'>No wishListBooks found</p>
           }
