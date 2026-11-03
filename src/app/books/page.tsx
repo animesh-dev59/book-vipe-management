@@ -45,14 +45,15 @@ import BookCard from '@/components/shared/BookCard';
 
 
 
-const getBooks = async (): Promise<IBook[]> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booksData.json`, {
-    cache: 'no-store', // প্রয়োজন অনুযায়ী revalidate বা cache নির্ধারণ করতে পারেন
-  });
-  if (!response.ok) {
-    throw new Error('Failed to fetch books data');
-  }
-  return response.json();
+ const getBooks = async (): Promise<IBook[]> => {
+ try{ 
+   const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booksData.json`);
+  const data = await response.json(); 
+  return data;
+ }catch(error){ 
+  console.error('Enter fetching book data:',error)
+  return []
+ }
 };
 
 const Books = async () => {
@@ -62,7 +63,7 @@ const Books = async () => {
     <section className="min-h-screen bg-slate-950 px-4 py-12 text-slate-100 sm:px-6 lg:px-8 container mx-auto my-4 rounded-4xl">
       {/* Page Header */}
       <div className="mx-auto mb-12 max-w-4xl text-center">
-        <h1 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 sm:text-5xl">
+        <h1 className="text-3xl font-extrabold tracking-tight text-transparent bg-clip-text  from-cyan-400 to-blue-600 sm:text-5xl">
           All Available Books
         </h1>
         <p className="mt-3 text-base text-slate-400 sm:text-lg">

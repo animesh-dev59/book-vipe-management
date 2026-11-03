@@ -10,14 +10,15 @@ interface IBookDetailsPagesProps {
   }>;
 }   
 const getBooks = async (): Promise<IBook[]> => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booksData.json`, {
-    cache: 'no-store', // প্রয়োজন অনুযায়ী revalidate বা cache নির্ধারণ করতে পারেন
-  });
-  if (!response.ok) {
-    throw new Error('Failed to fetch books data');
-  }
-  return response.json();
-};
+ try{ 
+   const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/booksData.json`,)
+  const data = await response.json(); 
+  return data;
+ }catch(error){ 
+  console.error('Enter fetching book data:',error)
+  return []
+ }
+}; 
 
 
 const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
@@ -27,7 +28,7 @@ const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
   // console.log(booksData,'booksData');
   // console.log(id,'id is a not best.');
   // const post = await (id) 
-  const book = booksData.find((book:IBook) => (book.bookId)  == (id)) as IBook;
+  const book = booksData.find((book:IBook) => String(book.bookId)  === (id)) as IBook;
 {/** 
    const book = booksData.find((book:IBook)=>string(book.bookId === string(id)))
    const book = booksData.find((book:IBook)=>string( book.bookId === Number(id)))
@@ -40,7 +41,7 @@ const BookDetailsPages = async({params}:IBookDetailsPagesProps) => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#F3F3F3] p-8 sm:p-12 rounded-2xl border border-slate-200">
 
   {/* Left Side: Image Container */}
-  <div className="relative h-[650px] w-full max-w-[550px] mx-auto flex items-center justify-center bg-white rounded-xl shadow-md p-6">
+  <div className="relative h-[650px/] w-full max-w-[550px/] mx-auto flex items-center justify-center bg-white rounded-xl shadow-md p-6">
     <Image
       src={book.image}
       alt={book.bookName}
